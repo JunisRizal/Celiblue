@@ -1,0 +1,407 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.625rem;
+  /* Custom TRusTLogIQ Dark Blue Theme */
+  --background: #0a0e1a;
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --primary: #00d4ff;
+  --primary-foreground: #0a0e1a;
+  --secondary: #16213e;
+  --secondary-foreground: #ffffff;
+  --muted: #4a5568;
+  --muted-foreground: #e2e8f0;
+  --accent: #00bcd4;
+  --accent-foreground: #0a0e1a;
+  --destructive: #ef4444;
+  --border: #374151;
+  --input: #374151;
+  --ring: #00d4ff;
+  --chart-1: #00d4ff;
+  --chart-2: #00bcd4;
+  --chart-3: #4a5568;
+  --chart-4: #718096;
+  --chart-5: #e2e8f0;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #0a0e1a;
+  --sidebar-accent: #16213e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #374151;
+  --sidebar-ring: #00d4ff;
+}
+
+.dark {
+  /* Same as root for consistent dark theme */
+  --background: #0a0e1a;
+  --foreground: #ffffff;
+  --card: #1a1a2e;
+  --card-foreground: #ffffff;
+  --popover: #1a1a2e;
+  --popover-foreground: #ffffff;
+  --primary: #00d4ff;
+  --primary-foreground: #0a0e1a;
+  --secondary: #16213e;
+  --secondary-foreground: #ffffff;
+  --muted: #4a5568;
+  --muted-foreground: #e2e8f0;
+  --accent: #00bcd4;
+  --accent-foreground: #0a0e1a;
+  --destructive: #ef4444;
+  --border: #374151;
+  --input: #374151;
+  --ring: #00d4ff;
+  --chart-1: #00d4ff;
+  --chart-2: #00bcd4;
+  --chart-3: #4a5568;
+  --chart-4: #718096;
+  --chart-5: #e2e8f0;
+  --sidebar: #1a1a2e;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #00d4ff;
+  --sidebar-primary-foreground: #0a0e1a;
+  --sidebar-accent: #16213e;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #374151;
+  --sidebar-ring: #00d4ff;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for TRusTLogIQ */
+.hero-background {
+  background-image: 
+    linear-gradient(135deg, rgba(10, 14, 26, 0.15) 0%, rgba(26, 26, 46, 0.1) 50%, rgba(22, 33, 62, 0.15) 100%),
+    url('/hero-bg.png');
+  background-size: cover;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.features-background {
+  background-image: 
+    linear-gradient(135deg, rgba(10, 14, 26, 0.15) 0%, rgba(26, 26, 46, 0.1) 50%, rgba(22, 33, 62, 0.15) 100%),
+    url('/hero-bg.png');
+  background-size: cover;
+  background-position: 50% 40%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.particle-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(0, 188, 212, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(0, 212, 255, 0.04) 0%, transparent 50%);
+  animation: float 20s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-10px) rotate(1deg); }
+  66% { transform: translateY(5px) rotate(-1deg); }
+}
+
+.glow-effect {
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-effect:hover {
+  box-shadow: 0 0 30px rgba(0, 212, 255, 0.5);
+}
+
+.text-glow {
+  text-shadow: 0 0 10px rgba(0, 212, 255, 0.5);
+}
+
+
+/* Enhanced particle effects */
+.particle-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 60% 70%, rgba(0, 188, 212, 0.08) 0%, transparent 40%),
+    radial-gradient(circle at 30% 30%, rgba(0, 212, 255, 0.06) 0%, transparent 40%);
+  animation: float-reverse 25s ease-in-out infinite;
+  z-index: 1;
+}
+
+@keyframes float-reverse {
+  0%, 100% { transform: translateY(0px) rotate(0deg) scale(1); }
+  33% { transform: translateY(8px) rotate(-1deg) scale(1.02); }
+  66% { transform: translateY(-12px) rotate(1deg) scale(0.98); }
+}
+
+/* Floating stars effect */
+.stars {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00d4ff;
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+.star:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.star:nth-child(2) { top: 80%; left: 80%; animation-delay: 1s; }
+.star:nth-child(3) { top: 40%; left: 60%; animation-delay: 2s; }
+.star:nth-child(4) { top: 70%; left: 30%; animation-delay: 0.5s; }
+.star:nth-child(5) { top: 10%; left: 70%; animation-delay: 1.5s; }
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Enhanced glow effects */
+.enhanced-glow {
+  position: relative;
+  overflow: hidden;
+}
+
+.enhanced-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, transparent, rgba(0, 212, 255, 0.3), transparent);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.enhanced-glow:hover::before {
+  opacity: 1;
+  animation: border-glow 2s linear infinite;
+}
+
+@keyframes border-glow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Pulse animation for live elements */
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { 
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+  }
+  50% { 
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 40px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Card hover animations */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 
+    0 20px 40px rgba(0, 0, 0, 0.3),
+    0 0 30px rgba(0, 212, 255, 0.2);
+}
+
+/* Text animations */
+.text-animate {
+  background: linear-gradient(45deg, #ffffff, #00d4ff, #ffffff);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: text-shimmer 3s ease-in-out infinite;
+}
+
+@keyframes text-shimmer {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+/* Loading animation for coming soon badges */
+.loading-dots::after {
+  content: '';
+  animation: loading-dots 1.5s infinite;
+}
+
+@keyframes loading-dots {
+  0%, 20% { content: ''; }
+  40% { content: '.'; }
+  60% { content: '..'; }
+  80%, 100% { content: '...'; }
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .particle-bg::before,
+  .particle-bg::after {
+    opacity: 0.5;
+  }
+  
+  .glow-effect {
+    box-shadow: 0 0 10px rgba(0, 212, 255, 0.2);
+  }
+  
+  .glow-effect:hover {
+    box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+  }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .particle-bg::before,
+  .particle-bg::after,
+  .star,
+  .enhanced-glow::before {
+    animation: none;
+  }
+  
+  .card-hover {
+    transition: none;
+  }
+}
+
+
+/* Enhanced background effects for custom image */
+.background-overlay {
+  position: relative;
+}
+
+.background-overlay::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(ellipse at top, rgba(0, 212, 255, 0.1) 0%, transparent 70%),
+    radial-gradient(ellipse at bottom, rgba(0, 188, 212, 0.08) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Improved text readability over background */
+.content-overlay {
+  position: relative;
+  z-index: 2;
+  background: rgba(10, 14, 26, 0.3);
+  backdrop-filter: blur(1px);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 1rem 0;
+}
+
+/* Subtle animation for background */
+@keyframes background-shift {
+  0%, 100% { 
+    background-position: 0% 50%; 
+  }
+  50% { 
+    background-position: 100% 50%; 
+  }
+}
+
+.animated-background {
+  background-size: 120% 120%;
+  animation: background-shift 30s ease-in-out infinite;
+}
+
+/* Enhanced card effects over background */
+.card-background-blur {
+  background: rgba(26, 26, 46, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+/* Improved section backgrounds */
+.section-overlay {
+  background: 
+    linear-gradient(135deg, rgba(10, 14, 26, 0.95) 0%, rgba(26, 26, 46, 0.9) 100%);
+  backdrop-filter: blur(2px);
+}
+
